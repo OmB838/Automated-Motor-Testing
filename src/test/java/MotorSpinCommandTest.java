@@ -46,8 +46,8 @@ public class MotorSpinCommandTest {
     public void testExecute() {
         motorSpinCommand.execute();
         
-        // Verify that setMotorSpeed was called with 5.0
-        verify(mockMotorSubsystem).setMotorSpeed(5.0);
+        // Verify that setMotorSpeed was called
+        verify(mockMotorSubsystem).setMotorSpeed(Constants.MOTORSPEED);
     }
 
     @Test
@@ -105,7 +105,7 @@ public class MotorSpinCommandTest {
         // Execute multiple times
         motorSpinCommand.execute();
         motorSpinCommand.execute();
-        verify(mockMotorSubsystem, times(2)).setMotorSpeed(5.0);
+        verify(mockMotorSubsystem, times(2)).setMotorSpeed(Constants.MOTORSPEED);
         
         // End
         motorSpinCommand.end(false);
